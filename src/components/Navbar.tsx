@@ -21,27 +21,37 @@ const NAV_ITEMS: { label: string; view: ViewState }[] = [
 export default function Navbar({ currentView, onNavigate }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleNav = (view: string) => {
+    onNavigate(view);
+    setIsOpen(false);
+    if (typeof window !== 'undefined' && 'gtag' in window) {
+      // @ts-ignore
+      window.gtag('event', 'click', { element: `nav_button_${view}` });
+    }
+  };
+
   return (
-    <header className="flex items-center justify-between px-4 sm:px-6 py-3 bg-white border-b border-slate-200 z-50 shadow-sm shrink-0 relative">
-      <div className="flex items-center gap-4 cursor-pointer" onClick={() => onNavigate('Home')}>
-        <div className="flex items-center bg-emerald-700 text-white px-3 py-1 rounded font-bold text-lg">
+    <header className="flex items-center justify-between px-4 sm:px-6 py-2 bg-white border-b border-slate-200 z-50 shadow-sm shrink-0 relative" role="banner">
+      <div className="flex items-center gap-4 cursor-pointer min-h-[48px]" onClick={() => handleNav('Home')} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && handleNav('Home')} aria-label="Go to Home">
+        <div className="flex items-center bg-emerald-700 text-white px-3 py-2 rounded font-bold text-lg">
           RUC
         </div>
         <div className="hidden sm:block h-6 w-px bg-slate-300"></div>
-        <div className="flex flex-col">
-          <span className="hidden sm:block text-[10px] font-semibold uppercase tracking-wider text-slate-500">Rural Utility Cost</span>
-          <h1 className="text-lg sm:text-xl font-bold leading-none flex items-center gap-2">
+        <div className="flex flex-col justify-center">
+          <span className="hidden sm:block text-[10px] font-semibold uppercase tracking-wider text-slate-500 leading-none mb-1">Rural Utility Cost</span>
+          <h1 className="text-lg sm:text-xl font-bold leading-none flex items-center gap-2 m-0">
             Pest <span className="hidden md:inline-block text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-sm uppercase tracking-widest">Decision Support</span>
           </h1>
         </div>
       </div>
 
-      <nav className="hidden md:flex items-center gap-6">
+      <nav className="hidden md:flex items-center gap-6 h-full" role="navigation" aria-label="Main Navigation">
         {NAV_ITEMS.map((item) => (
           <button
             key={item.view}
-            onClick={() => onNavigate(item.view)}
-            className={`text-sm font-semibold transition-colors border-b-2 pt-1 pb-1 -mb-[2px] ${
+            aria-current={currentView === item.view ? 'page' : undefined}
+            onClick={() => handleNav(item.view)}
+            className={`text-sm font-semibold transition-colors border-b-2 min-h-[48px] flex items-center ${
               currentView === item.view
                 ? 'text-emerald-700 border-emerald-700'
                 : 'text-slate-600 hover:text-slate-900 border-transparent hover:border-slate-300'
@@ -50,31 +60,32 @@ export default function Navbar({ currentView, onNavigate }: NavbarProps) {
             {item.label}
           </button>
         ))}
-        <div className="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center text-xs font-bold text-slate-500 ml-2">
-          OP
+        <div className="w-10 h-10 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center text-sm font-bold text-slate-500 ml-2" aria-hidden="true">
+          JD
         </div>
       </nav>
 
       <div className="flex items-center md:hidden">
         <button
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+          aria-label="Toggle mobile menu"
           onClick={() => setIsOpen(!isOpen)}
-          className="text-slate-500 hover:bg-slate-100 p-2 rounded-md focus:outline-none transition-colors"
+          className="text-slate-500 hover:bg-slate-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-lg md:hidden z-50">
-          <div className="px-4 py-2 space-y-1">
+        <div id="mobile-menu" className="absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-lg md:hidden z-50">
+          <nav className="px-4 py-2 space-y-1" role="navigation" aria-label="Mobile Navigation">
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.view}
-                onClick={() => {
-                  onNavigate(item.view);
-                  setIsOpen(false);
-                }}
-                className={`block w-full text-left px-3 py-2 rounded-md text-sm font-semibold ${
+                aria-current={currentView === item.view ? 'page' : undefined}
+                onClick={() => handleNav(item.view)}
+                className={`block w-full text-left px-3 py-3 rounded-md text-sm font-semibold min-h-[48px] focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
                   currentView === item.view
                     ? 'bg-emerald-50 text-emerald-700'
                     : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
@@ -83,7 +94,7 @@ export default function Navbar({ currentView, onNavigate }: NavbarProps) {
                 {item.label}
               </button>
             ))}
-          </div>
+          </nav>
         </div>
       )}
     </header>

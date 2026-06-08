@@ -11,6 +11,14 @@ interface DashboardProps {
 }
 
 export default function Dashboard({ onNavigate, favorites, toggleFavorite }: DashboardProps) {
+  const handleNavClick = (view: ViewState) => {
+    onNavigate(view);
+    if (typeof window !== 'undefined' && 'gtag' in window) {
+      // @ts-ignore
+      window.gtag('event', 'click', { element: `dashboard_nav_${view}` });
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Overview Cards Row */}
@@ -42,20 +50,27 @@ export default function Dashboard({ onNavigate, favorites, toggleFavorite }: Das
           <Target className="h-6 w-6 text-blue-200 relative z-0" strokeWidth={1.5} />
         </div>
 
-        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm relative overflow-hidden flex items-center justify-between cursor-pointer hover:bg-slate-50" onClick={() => onNavigate('Scouting')}>
+        <div 
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === 'Enter' && handleNavClick('Scouting')}
+          className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm relative overflow-hidden flex items-center justify-between cursor-pointer hover:bg-slate-50 min-h-[90px] focus:outline-none focus:ring-2 focus:ring-emerald-500" 
+          onClick={() => handleNavClick('Scouting')}
+          aria-label="Navigate to log data"
+        >
           <div className="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div>
           <div className="pl-2">
             <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Actions</h4>
             <p className="text-sm font-bold text-emerald-700 relative z-10 uppercase tracking-wider">Log Data</p>
           </div>
-          <Sprout className="h-5 w-5 text-emerald-300 relative z-0" strokeWidth={1.5} />
+          <Sprout className="h-5 w-5 text-emerald-300 relative z-0" strokeWidth={1.5} aria-hidden="true" />
         </div>
       </div>
 
       {/* Tools Grid */}
-      <section>
+      <section aria-labelledby="modules-heading">
         <div className="mb-4">
-          <h2 className="text-sm font-bold text-slate-700 uppercase tracking-wider border-b border-slate-200 pb-2">Decision Support Modules</h2>
+          <h2 id="modules-heading" className="text-sm font-bold text-slate-700 uppercase tracking-wider border-b border-slate-200 pb-2">Decision Support Modules</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -65,7 +80,7 @@ export default function Dashboard({ onNavigate, favorites, toggleFavorite }: Das
               tool={tool}
               isFavorite={favorites.includes(tool.id)}
               onToggleFavorite={toggleFavorite}
-              onNavigate={onNavigate}
+              onNavigate={handleNavClick}
             />
           ))}
         </div>
