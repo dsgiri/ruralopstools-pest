@@ -18,8 +18,11 @@ export default function ProSubscriptionROI() {
     <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-6">
-          <div className="flex items-center gap-4">
-            <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Acres you manage</label>
+          <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+            <div className="flex justify-between items-center sm:w-48 shrink-0">
+              <label className="text-sm font-bold text-slate-400">Acres you manage</label>
+              <span className="text-sm font-bold text-white sm:hidden">{acresManaged} ac</span>
+            </div>
             <input
               type="range"
               min="100"
@@ -27,12 +30,15 @@ export default function ProSubscriptionROI() {
               step="100"
               value={acresManaged}
               onChange={(e) => setAcresManaged(Number(e.target.value))}
-              className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+              className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
             />
-            <span className="w-20 text-right text-sm font-bold text-white">{acresManaged} ac</span>
+            <span className="hidden sm:block w-20 text-right text-sm font-bold text-white">{acresManaged} ac</span>
           </div>
-          <div className="flex items-center gap-4">
-            <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Avg crop value ($/ac)</label>
+          <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+            <div className="flex justify-between items-center sm:w-48 shrink-0">
+              <label className="text-sm font-bold text-slate-400">Avg crop value ($/ac)</label>
+              <span className="text-sm font-bold text-white sm:hidden">${avgCropValue}/ac</span>
+            </div>
             <input
               type="range"
               min="200"
@@ -40,33 +46,39 @@ export default function ProSubscriptionROI() {
               step="50"
               value={avgCropValue}
               onChange={(e) => setAvgCropValue(Number(e.target.value))}
-              className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+              className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
             />
-            <span className="w-20 text-right text-sm font-bold text-white">${avgCropValue}/ac</span>
+            <span className="hidden sm:block w-20 text-right text-sm font-bold text-white">${avgCropValue}/ac</span>
           </div>
-          <div className="flex items-center gap-4">
-            <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Avoided bad sprays/yr</label>
+          <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+            <div className="flex justify-between items-center sm:w-48 shrink-0">
+              <label className="text-sm font-bold text-slate-400">Avoided bad sprays/yr</label>
+              <span className="text-sm font-bold text-white sm:hidden">{avoidedSprays} sprays</span>
+            </div>
             <input
               type="range"
               min="0"
               max="5"
               value={avoidedSprays}
               onChange={(e) => setAvoidedSprays(Number(e.target.value))}
-              className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+              className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
             />
-            <span className="w-20 text-right text-sm font-bold text-white">{avoidedSprays} sprays</span>
+            <span className="hidden sm:block w-20 text-right text-sm font-bold text-white">{avoidedSprays} sp</span>
           </div>
-          <div className="flex items-center gap-4">
-            <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Spray cost ($/ac)</label>
+          <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+            <div className="flex justify-between items-center sm:w-48 shrink-0">
+              <label className="text-sm font-bold text-slate-400">Spray cost ($/ac)</label>
+              <span className="text-sm font-bold text-white sm:hidden">${sprayCost}/ac</span>
+            </div>
             <input
               type="range"
               min="5"
               max="50"
               value={sprayCost}
               onChange={(e) => setSprayCost(Number(e.target.value))}
-              className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+              className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
             />
-            <span className="w-20 text-right text-sm font-bold text-white">${sprayCost}/ac</span>
+            <span className="hidden sm:block w-20 text-right text-sm font-bold text-white">${sprayCost}/ac</span>
           </div>
         </div>
 

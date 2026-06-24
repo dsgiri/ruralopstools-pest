@@ -39,6 +39,37 @@ export default function App() {
       // @ts-ignore
       window.gtag('event', 'page_view', { page_path: `/${currentView.toLowerCase()}` });
     }
+
+    // Dynamic SEO Management
+    const seoData: Record<ViewState, { title: string; description: string }> = {
+      Home: { title: 'Pest Management Dashboard | RUC Pest', description: 'Overview of pest risks, scouting logs, and agricultural compliance.' },
+      Risk: { title: 'Pest Risk Forecast | RUC Pest', description: 'Advanced degree-day accumulation and pest risk forecasting.' },
+      Disease: { title: 'Crop Disease Models | RUC Pest', description: 'Monitor infection conditions and plant disease outbreak probabilities.' },
+      Scouting: { title: 'Field Scouting Logs | RUC Pest', description: 'Digital scouting records, pest identification, and field observation logs.' },
+      Traps: { title: 'Trap Count Tracker | RUC Pest', description: 'Record and visualize pheromone trap counts for moth flights and insect swarms.' },
+      Spray: { title: 'Spray Records & Compliance | RUC Pest', description: 'Manage EPA-compliant spray records and pesticide application logs.' },
+      Alerts: { title: 'Threshold Alerts | RUC Pest', description: 'Automated push alerts for economic pest thresholds and weather risks.' },
+      Favorites: { title: 'Favorite Tools | RUC Pest', description: 'Quick access to your most used pest management tools.' },
+      Calculators: { title: 'Agricultural ROI Calculators | RUC Pest', description: 'Interactive tools for economic thresholds, spray timing, and GDD accumulation.' },
+      About: { title: 'About Us | RUC Pest', description: 'Learn about RUC Pest and our mission to optimize pest management.' },
+      Contact: { title: 'Contact Support | RUC Pest', description: 'Get in touch with the RUC Pest support and agricultural advisory team.' },
+      Legal: { title: 'Terms & Privacy | RUC Pest', description: 'Legal terms, privacy policy, and compliance information for RUC Pest.' },
+      License: { title: 'Software License | RUC Pest', description: 'Software licensing information and open source attributions.' },
+    };
+
+    const { title, description } = seoData[currentView] || seoData.Home;
+    
+    document.title = title;
+    
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', description);
+    } else {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      metaDesc.setAttribute('content', description);
+      document.head.appendChild(metaDesc);
+    }
   }, [currentView]);
 
   const handleMainScroll = (e: React.UIEvent<HTMLElement>) => {

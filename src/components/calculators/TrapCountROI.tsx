@@ -49,8 +49,11 @@ export default function TrapCountROI() {
           </div>
 
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Acres managed</label>
+            <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+              <div className="flex justify-between items-center sm:w-48 shrink-0">
+                <label className="text-sm font-bold text-slate-400">Acres managed</label>
+                <span className="text-sm font-bold text-white sm:hidden">{acresManaged} ac</span>
+              </div>
               <input
                 type="range"
                 min="100"
@@ -58,33 +61,39 @@ export default function TrapCountROI() {
                 step="100"
                 value={acresManaged}
                 onChange={(e) => setAcresManaged(Number(e.target.value))}
-                className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+                className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
-              <span className="w-16 text-right text-sm font-bold text-white">{acresManaged} ac</span>
+              <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{acresManaged} ac</span>
             </div>
-            <div className="flex items-center gap-4">
-              <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Trap detection lead (days)</label>
+            <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+              <div className="flex justify-between items-center sm:w-48 shrink-0">
+                <label className="text-sm font-bold text-slate-400">Trap detection lead (days)</label>
+                <span className="text-sm font-bold text-white sm:hidden">{trapLeadDays} days</span>
+              </div>
               <input
                 type="range"
                 min="1"
                 max="21"
                 value={trapLeadDays}
                 onChange={(e) => setTrapLeadDays(Number(e.target.value))}
-                className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+                className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
-              <span className="w-16 text-right text-sm font-bold text-white">{trapLeadDays} days</span>
+              <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{trapLeadDays} days</span>
             </div>
-            <div className="flex items-center gap-4">
-              <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Yield saved by early spray (%)</label>
+            <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+              <div className="flex justify-between items-center sm:w-48 shrink-0">
+                <label className="text-sm font-bold text-slate-400">Yield saved by early spray (%)</label>
+                <span className="text-sm font-bold text-white sm:hidden">{yieldSavedPercent}%</span>
+              </div>
               <input
                 type="range"
                 min="1"
                 max="25"
                 value={yieldSavedPercent}
                 onChange={(e) => setYieldSavedPercent(Number(e.target.value))}
-                className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+                className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
-              <span className="w-16 text-right text-sm font-bold text-white">{yieldSavedPercent}%</span>
+              <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{yieldSavedPercent}%</span>
             </div>
           </div>
         </div>

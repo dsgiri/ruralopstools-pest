@@ -22,7 +22,7 @@ export default function Dashboard({ onNavigate, favorites, toggleFavorite }: Das
   return (
     <div className="space-y-6">
       {/* Overview Cards Row */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm relative overflow-hidden flex items-center justify-between">
           <div className="absolute top-0 left-0 w-1 h-full bg-slate-400"></div>
           <div className="pl-2">

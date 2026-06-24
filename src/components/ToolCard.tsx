@@ -3,9 +3,10 @@ import { Heart, ArrowRight } from 'lucide-react';
 import { Tool, ViewState } from '../types';
 
 interface ToolCardProps {
+  key?: React.Key;
   tool: Tool;
   isFavorite: boolean;
-  onToggleFavorite: (id: string, e: React.MouseEvent) => void;
+  onToggleFavorite: (id: string, e?: React.MouseEvent) => void;
   onNavigate: (view: ViewState) => void;
 }
 

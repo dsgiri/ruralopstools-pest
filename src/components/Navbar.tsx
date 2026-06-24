@@ -22,7 +22,7 @@ const NAV_ITEMS: { label: string; view: ViewState }[] = [
 export default function Navbar({ currentView, onNavigate }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleNav = (view: string) => {
+  const handleNav = (view: ViewState) => {
     onNavigate(view);
     setIsOpen(false);
     if (typeof window !== 'undefined' && 'gtag' in window) {

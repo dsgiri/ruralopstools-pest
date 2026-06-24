@@ -55,42 +55,51 @@ export default function GDDCumulation() {
             ))}
           </div>
 
-          <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <label className="w-32 text-sm font-bold text-slate-400 shrink-0">Today's high (°F)</label>
+          <div className="space-y-6">
+            <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+              <div className="flex justify-between items-center sm:w-32 shrink-0">
+                <label className="text-sm font-bold text-slate-400">Today's high (°F)</label>
+                <span className="text-sm font-bold text-white sm:hidden">{highTemp}°F</span>
+              </div>
               <input
                 type="range"
                 min="50"
                 max="110"
                 value={highTemp}
                 onChange={(e) => setHighTemp(Number(e.target.value))}
-                className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+                className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
-              <span className="w-12 text-right text-sm font-bold text-white">{highTemp}°F</span>
+              <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{highTemp}°F</span>
             </div>
-            <div className="flex items-center gap-4">
-              <label className="w-32 text-sm font-bold text-slate-400 shrink-0">Today's low (°F)</label>
+            <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+              <div className="flex justify-between items-center sm:w-32 shrink-0">
+                <label className="text-sm font-bold text-slate-400">Today's low (°F)</label>
+                <span className="text-sm font-bold text-white sm:hidden">{lowTemp}°F</span>
+              </div>
               <input
                 type="range"
                 min="30"
                 max="90"
                 value={lowTemp}
                 onChange={(e) => setLowTemp(Number(e.target.value))}
-                className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+                className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
-              <span className="w-12 text-right text-sm font-bold text-white">{lowTemp}°F</span>
+              <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{lowTemp}°F</span>
             </div>
-            <div className="flex items-center gap-4">
-              <label className="w-32 text-sm font-bold text-slate-400 shrink-0">Days accumulated</label>
+            <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+              <div className="flex justify-between items-center sm:w-32 shrink-0">
+                <label className="text-sm font-bold text-slate-400">Days accumulated</label>
+                <span className="text-sm font-bold text-white sm:hidden">{daysAccumulated} days</span>
+              </div>
               <input
                 type="range"
                 min="1"
                 max="120"
                 value={daysAccumulated}
                 onChange={(e) => setDaysAccumulated(Number(e.target.value))}
-                className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+                className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
-              <span className="w-16 text-right text-sm font-bold text-white">{daysAccumulated} days</span>
+              <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{daysAccumulated} d</span>
             </div>
           </div>
         </div>

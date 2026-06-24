@@ -46,56 +46,68 @@ export default function SprayTimingWindow() {
     <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-6">
-          <div className="flex items-center gap-4">
-            <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Wind speed (mph)</label>
+          <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+            <div className="flex justify-between items-center sm:w-48 shrink-0">
+              <label className="text-sm font-bold text-slate-400">Wind speed (mph)</label>
+              <span className="text-sm font-bold text-white sm:hidden">{windSpeed} mph</span>
+            </div>
             <input
               type="range"
               min="0"
               max="25"
               value={windSpeed}
               onChange={(e) => setWindSpeed(Number(e.target.value))}
-              className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+              className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
             />
-            <span className="w-16 text-right text-sm font-bold text-white">{windSpeed} mph</span>
+            <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{windSpeed} mph</span>
           </div>
           
-          <div className="flex items-center gap-4">
-            <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Temperature (°F)</label>
+          <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+            <div className="flex justify-between items-center sm:w-48 shrink-0">
+              <label className="text-sm font-bold text-slate-400">Temperature (°F)</label>
+              <span className="text-sm font-bold text-white sm:hidden">{temperature}°F</span>
+            </div>
             <input
               type="range"
               min="40"
               max="110"
               value={temperature}
               onChange={(e) => setTemperature(Number(e.target.value))}
-              className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+              className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
             />
-            <span className="w-16 text-right text-sm font-bold text-white">{temperature}°F</span>
+            <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{temperature}°F</span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Relative humidity (%)</label>
+          <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+            <div className="flex justify-between items-center sm:w-48 shrink-0">
+              <label className="text-sm font-bold text-slate-400">Relative humidity (%)</label>
+              <span className="text-sm font-bold text-white sm:hidden">{humidity}%</span>
+            </div>
             <input
               type="range"
               min="20"
               max="100"
               value={humidity}
               onChange={(e) => setHumidity(Number(e.target.value))}
-              className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+              className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
             />
-            <span className="w-16 text-right text-sm font-bold text-white">{humidity}%</span>
+            <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{humidity}%</span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Hours since last rain</label>
+          <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+            <div className="flex justify-between items-center sm:w-48 shrink-0">
+              <label className="text-sm font-bold text-slate-400">Hours since last rain</label>
+              <span className="text-sm font-bold text-white sm:hidden">{rainInterval} hrs</span>
+            </div>
             <input
               type="range"
               min="0"
               max="72"
               value={rainInterval}
               onChange={(e) => setRainInterval(Number(e.target.value))}
-              className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+              className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
             />
-            <span className="w-16 text-right text-sm font-bold text-white">{rainInterval} hrs</span>
+            <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{rainInterval} hrs</span>
           </div>
 
           <div className="flex items-center gap-4 pt-2">

@@ -59,8 +59,11 @@ export default function EconomicThreshold() {
           </div>
 
           <div className="space-y-6 border-t border-slate-700 pt-6">
-            <div className="flex items-center gap-4">
-              <label className="w-48 text-sm font-bold text-slate-400 shrink-0">% yield loss per pest unit</label>
+            <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+              <div className="flex justify-between items-center sm:w-48 shrink-0">
+                <label className="text-sm font-bold text-slate-400">% yield loss per pest unit</label>
+                <span className="text-sm font-bold text-white sm:hidden">{yieldLossPerUnit.toFixed(1)}%</span>
+              </div>
               <input
                 type="range"
                 min="0.1"
@@ -68,21 +71,24 @@ export default function EconomicThreshold() {
                 step="0.1"
                 value={yieldLossPerUnit}
                 onChange={(e) => setYieldLossPerUnit(Number(e.target.value))}
-                className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+                className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
-              <span className="w-16 text-right text-sm font-bold text-white">{yieldLossPerUnit.toFixed(1)}%</span>
+              <span className="hidden sm:block w-16 text-right text-sm font-bold text-white">{yieldLossPerUnit.toFixed(1)}%</span>
             </div>
-            <div className="flex items-center gap-4">
-              <label className="w-48 text-sm font-bold text-slate-400 shrink-0">Current pest count</label>
+            <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+              <div className="flex justify-between items-center sm:w-48 shrink-0">
+                <label className="text-sm font-bold text-slate-400">Current pest count</label>
+                <span className="text-sm font-bold text-white sm:hidden">{currentCount} /100 sweep</span>
+              </div>
               <input
                 type="range"
                 min="0"
                 max="50"
                 value={currentCount}
                 onChange={(e) => setCurrentCount(Number(e.target.value))}
-                className="flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
+                className="w-full flex-1 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-slate-400"
               />
-              <span className="w-24 text-right text-sm font-bold text-white">{currentCount} /100 sweep</span>
+              <span className="hidden sm:block w-24 text-right text-sm font-bold text-white">{currentCount} /100 sw</span>
             </div>
           </div>
         </div>
