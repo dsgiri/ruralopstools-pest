@@ -16,7 +16,6 @@ import TrapTracker from './components/TrapTracker';
 import SprayDecision from './components/SprayDecision';
 import AlertsPanel from './components/AlertsPanel';
 import FavoritesView from './components/FavoritesView';
-import AdContainer from './components/AdContainer';
 import CookieBanner from './components/CookieBanner';
 
 export default function App() {
@@ -83,18 +82,11 @@ export default function App() {
     <div className="flex flex-col h-screen w-full text-slate-900 overflow-hidden bg-[#f1f5f9] font-sans">
       <Navbar currentView={currentView} onNavigate={setCurrentView} />
       <main className="flex-1 overflow-y-auto w-full p-4 sm:p-6 animate-in fade-in duration-500" onScroll={handleMainScroll} role="main">
-        <AdContainer type="header" className="hidden md:flex mb-6" />
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6">
           <div className="flex-1 min-w-0">
             {renderView()}
           </div>
-          {currentView !== 'Home' && currentView !== 'Scouting' && currentView !== 'Spray' && (
-            <aside className="w-full md:w-[300px] flex-shrink-0 hidden lg:block">
-              <AdContainer type="sidebar" />
-            </aside>
-          )}
         </div>
-        <AdContainer type="footer" className="mt-8" />
       </main>
       <Footer onNavigate={setCurrentView} />
       <CookieBanner />
