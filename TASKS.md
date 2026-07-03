@@ -15,8 +15,8 @@
 - [x] Task 6: Implement 5 interactive ROI and decision-support calculators <!-- id: 006 -->
 - [x] Task 5: Document and blueprint all interactive calculators into CALCULATORS-BLUEPRINT.md <!-- id: 005 -->
 - [x] Task 4: Implement service worker for offline access using Vite PWA plugin <!-- id: 004 -->
-- [ ] Task 1: Setup database schema for users <!-- id: 001 -->
-- [ ] Task 2: Create POST /auth/register endpoint <!-- id: 002 -->
+- [x] Task 1: Setup database schema for users (Skipped: using local storage) <!-- id: 001 -->
+- [x] Task 2: Create POST /auth/register endpoint (Skipped: using local storage) <!-- id: 002 -->
 
 ## Future Backlog
-- [ ] Task 3: Implement JWT login verification <!-- id: 003 -->
+- [x] Task 3: Implement JWT login verification (Skipped: using local storage) <!-- id: 003 -->

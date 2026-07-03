@@ -128,7 +128,7 @@ export default function GDDCumulation() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-[#1e1e1e] p-4 rounded-xl">
               <div className="text-xs font-bold text-slate-400 mb-1">Today's GDD</div>
               <div className="text-xl font-bold text-white">{todaysGDD.toFixed(1)} GDD</div>

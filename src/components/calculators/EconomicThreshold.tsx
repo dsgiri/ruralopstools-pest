@@ -28,7 +28,7 @@ export default function EconomicThreshold() {
     <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-6">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label className="block text-xs font-bold text-slate-400 mb-1">Crop value ($/bu)</label>
               <input
@@ -94,7 +94,7 @@ export default function EconomicThreshold() {
         </div>
 
         <div className="flex flex-col justify-center space-y-6 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-[#1e1e1e] p-4 rounded-xl">
               <div className="text-xs font-bold text-slate-400 mb-1">Economic threshold</div>
               <div className="text-xl font-bold text-white">{thresholdRounded} pests</div>

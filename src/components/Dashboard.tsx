@@ -16,11 +16,19 @@ export default function Dashboard({ onNavigate, favorites, toggleFavorite }: Das
 
   useEffect(() => {
     try {
-      const scouts = JSON.parse(localStorage.getItem('pest_scouting_logs') || '[]');
-      setScoutsCount(scouts.length || 3); // Fallback to initial mock length if somehow 0 on first load without init
+      const scoutsItem = localStorage.getItem('pest_scouting_logs');
+      if (scoutsItem) {
+        setScoutsCount(JSON.parse(scoutsItem).length);
+      } else {
+        setScoutsCount(3); // Default mock data length if never initialized
+      }
       
-      const traps = JSON.parse(localStorage.getItem('pest_trap_tracker') || '[]');
-      setTrapsCount(traps.length || 3);
+      const trapsItem = localStorage.getItem('pest_trap_tracker');
+      if (trapsItem) {
+        setTrapsCount(JSON.parse(trapsItem).length);
+      } else {
+        setTrapsCount(3);
+      }
     } catch {
       setScoutsCount(3);
       setTrapsCount(3);

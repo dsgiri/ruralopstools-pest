@@ -99,8 +99,8 @@ export default function TrapCountROI() {
         </div>
 
         <div className="flex flex-col justify-center space-y-6 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-[#1e1e1e] p-4 rounded-xl col-span-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-[#1e1e1e] p-4 rounded-xl col-span-1 sm:col-span-2">
               <div className="text-xs font-bold text-slate-400 mb-1">Crop value at risk</div>
               <div className="text-xl font-bold text-white">{formatCurrency(valueAtRisk)}</div>
             </div>

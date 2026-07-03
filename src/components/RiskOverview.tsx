@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AlertCircle, ArrowUpRight, ArrowDownRight, Wind, Droplets, Thermometer } from 'lucide-react';
+import { ViewState } from '../types';
 
 const mockRiskData = [
   { id: '1', pest: 'Corn Earworm', crop: 'Sweet Corn', risk: 'High', trend: 'up', severity: 'Critical', region: 'North Field' },
@@ -8,7 +9,11 @@ const mockRiskData = [
   { id: '4', pest: 'Spider Mites', crop: 'Alfalfa', risk: 'High', trend: 'up', severity: 'Critical', region: 'West Field' },
 ];
 
-export default function RiskOverview() {
+interface RiskOverviewProps {
+  onNavigate?: (view: ViewState) => void;
+}
+
+export default function RiskOverview({ onNavigate }: RiskOverviewProps) {
   const [selectedCrop, setSelectedCrop] = useState('All Crops');
 
   return (
@@ -103,7 +108,12 @@ export default function RiskOverview() {
                     </div>
                   </td>
                   <td className="px-4 py-3 whitespace-nowrap text-right">
-                    <button className="text-[10px] font-bold text-emerald-700 uppercase tracking-widest hover:underline">View</button>
+                    <button 
+                      onClick={() => onNavigate && onNavigate('Spray')}
+                      className="text-[10px] font-bold text-emerald-700 uppercase tracking-widest hover:underline"
+                    >
+                      View
+                    </button>
                   </td>
                 </tr>
               ))}

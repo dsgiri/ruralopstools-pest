@@ -95,8 +95,8 @@ export default function App() {
   const renderView = () => {
     switch (currentView) {
       case 'Home': return <Dashboard onNavigate={setCurrentView} favorites={favorites} toggleFavorite={toggleFavorite} />;
-      case 'Risk': return <RiskOverview />;
-      case 'Disease': return <DiseaseOverview />;
+      case 'Risk': return <RiskOverview onNavigate={setCurrentView} />;
+      case 'Disease': return <DiseaseOverview onNavigate={setCurrentView} />;
       case 'Scouting': return <ScoutingLog />;
       case 'Traps': return <TrapTracker />;
       case 'Spray': return <SprayDecision />;
