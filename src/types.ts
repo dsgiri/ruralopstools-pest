@@ -1,4 +1,4 @@
-export type ViewState = 'Home' | 'Risk' | 'Disease' | 'Scouting' | 'Traps' | 'Spray' | 'Alerts' | 'Favorites' | 'Calculators' | 'About' | 'Contact' | 'Legal' | 'License';
+export type ViewState = 'Home' | 'Risk' | 'Disease' | 'Scouting' | 'Traps' | 'Spray' | 'Alerts' | 'Favorites' | 'Calculators' | 'About' | 'Contact' | 'Legal' | 'License' | 'Privacy';
 
 export type ToolCategory = 'Risk' | 'Disease' | 'Scouting' | 'Traps' | 'Spray' | 'Alerts' | 'Calculators';
 

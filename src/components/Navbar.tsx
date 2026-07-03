@@ -8,7 +8,6 @@ interface NavbarProps {
 }
 
 const NAV_ITEMS: { label: string; view: ViewState }[] = [
-  { label: 'Home', view: 'Home' },
   { label: 'Risk', view: 'Risk' },
   { label: 'Disease', view: 'Disease' },
   { label: 'Scouting', view: 'Scouting' },

@@ -1,6 +1,12 @@
 # Project Task Board
 
 ## Active Sprint
+- [x] Task 17: Remove all Google AdSense placeholders <!-- id: 017 -->
+- [x] Task 16: Stub AdSense placements in layout <!-- id: 016 -->
+- [x] Task 15: Remove Pro Subscription calculator <!-- id: 015 -->
+- [x] Task 14: Persist real data via localStorage for Logs, Traps, and Dashboard <!-- id: 014 -->
+- [x] Task 13: Update Cookie Banner with Reject/Manage options <!-- id: 013 -->
+- [x] Task 12: Add Privacy Policy legal page <!-- id: 012 -->
 - [x] Task 11: Implement dynamic SEO title and description updates for all views <!-- id: 011 -->
 - [x] Task 10: Make complete solution layout mobile-friendly (wrap calculators, responsive grids) <!-- id: 010 -->
 - [x] Task 9: Create high contrast SVG favicon and update index.html <!-- id: 009 -->

@@ -11,6 +11,7 @@ export default function Footer({ onNavigate }: FooterProps) {
       <nav className="flex flex-wrap justify-center gap-4 mb-3 sm:mb-0" aria-label="Footer Navigation">
         <button onClick={() => onNavigate('About')} className="hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300 rounded p-2 transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center">About</button>
         <button onClick={() => onNavigate('Contact')} className="hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300 rounded p-2 transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center">Contact</button>
+        <button onClick={() => onNavigate('Privacy')} className="hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300 rounded p-2 transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center">Privacy Policy</button>
         <button onClick={() => onNavigate('Legal')} className="hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300 rounded p-2 transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center">Legal</button>
         <button onClick={() => onNavigate('License')} className="hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300 rounded p-2 transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center">License</button>
       </nav>

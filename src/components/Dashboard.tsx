@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ViewState } from '../types';
 import { TOOLS } from '../data/tools';
 import ToolCard from './ToolCard';
@@ -11,6 +11,22 @@ interface DashboardProps {
 }
 
 export default function Dashboard({ onNavigate, favorites, toggleFavorite }: DashboardProps) {
+  const [scoutsCount, setScoutsCount] = useState(0);
+  const [trapsCount, setTrapsCount] = useState(0);
+
+  useEffect(() => {
+    try {
+      const scouts = JSON.parse(localStorage.getItem('pest_scouting_logs') || '[]');
+      setScoutsCount(scouts.length || 3); // Fallback to initial mock length if somehow 0 on first load without init
+      
+      const traps = JSON.parse(localStorage.getItem('pest_trap_tracker') || '[]');
+      setTrapsCount(traps.length || 3);
+    } catch {
+      setScoutsCount(3);
+      setTrapsCount(3);
+    }
+  }, []);
+
   const handleNavClick = (view: ViewState) => {
     onNavigate(view);
     if (typeof window !== 'undefined' && 'gtag' in window) {
@@ -35,17 +51,17 @@ export default function Dashboard({ onNavigate, favorites, toggleFavorite }: Das
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm relative overflow-hidden flex items-center justify-between">
           <div className="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
           <div className="pl-2">
-            <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Accumulation</h4>
-            <p className="text-lg font-bold text-slate-800 relative z-10">High <span className="text-xs font-normal text-slate-500">Degree-Days</span></p>
+            <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Scouting</h4>
+            <p className="text-lg font-bold text-slate-800 relative z-10">{scoutsCount} <span className="text-xs font-normal text-slate-500">Logs</span></p>
           </div>
-          <ThermometerSun className="h-6 w-6 text-amber-200 relative z-0" strokeWidth={1.5} />
+          <Sprout className="h-6 w-6 text-amber-200 relative z-0" strokeWidth={1.5} />
         </div>
 
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm relative overflow-hidden flex items-center justify-between">
           <div className="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
           <div className="pl-2">
-            <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Alerts</h4>
-            <p className="text-lg font-bold text-slate-800 relative z-10">2 <span className="text-xs font-normal text-slate-500">Active</span></p>
+            <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Traps</h4>
+            <p className="text-lg font-bold text-slate-800 relative z-10">{trapsCount} <span className="text-xs font-normal text-slate-500">Records</span></p>
           </div>
           <Target className="h-6 w-6 text-blue-200 relative z-0" strokeWidth={1.5} />
         </div>

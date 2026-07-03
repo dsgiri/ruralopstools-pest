@@ -54,6 +54,39 @@ export default function InfoPages({ view }: InfoPagesProps) {
           </div>
         )}
 
+        {view === 'Privacy' && (
+          <div className="space-y-4 text-slate-700 max-w-none">
+            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-6 border-b border-slate-100 pb-4">Privacy Policy</h2>
+            <p className="text-xs leading-relaxed">
+              <strong>Last Updated:</strong> {new Date().toLocaleDateString()}
+            </p>
+            <h3 className="text-sm font-bold text-slate-800 mt-4">1. Information We Collect</h3>
+            <p className="text-xs leading-relaxed">
+              We collect information you provide directly to us when you use our application, such as pest scouting logs, trap counts, field names, and usage data. We may also collect standard technical information such as your IP address, browser type, and interactions with the application.
+            </p>
+            <h3 className="text-sm font-bold text-slate-800 mt-4">2. How We Use Your Information</h3>
+            <p className="text-xs leading-relaxed">
+              We use the information we collect to provide, maintain, and improve our pest management dashboard, to compute pest risk models, and to save your preferences locally. We may also use this information for analytical purposes and to display relevant advertisements.
+            </p>
+            <h3 className="text-sm font-bold text-slate-800 mt-4">3. Data Storage and Local Storage</h3>
+            <p className="text-xs leading-relaxed">
+              Much of the data you enter (such as scouting logs and trap records) is stored locally on your device via browser localStorage to ensure privacy and offline capabilities. Clearing your browser data may result in the loss of this information.
+            </p>
+            <h3 className="text-sm font-bold text-slate-800 mt-4">4. Third-Party Services and Advertising</h3>
+            <p className="text-xs leading-relaxed">
+              We may use third-party advertising partners (such as Google AdSense) to serve ads when you visit our website. These companies may use cookies and similar technologies to collect non-personal information about your visits to this and other websites in order to provide advertisements about goods and services of interest to you.
+            </p>
+            <h3 className="text-sm font-bold text-slate-800 mt-4">5. Your Choices</h3>
+            <p className="text-xs leading-relaxed">
+              You can manage your cookie preferences through our cookie banner or your browser settings. You may also clear your local storage at any time, though this will delete your saved application data.
+            </p>
+            <h3 className="text-sm font-bold text-slate-800 mt-4">6. Contact Us</h3>
+            <p className="text-xs leading-relaxed">
+              If you have any questions about this Privacy Policy, please contact us at support@ruralutilitycost.com.
+            </p>
+          </div>
+        )}
+
         {view === 'Contact' && (
           <div className="space-y-4 text-slate-700 max-w-none">
             <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-6 border-b border-slate-100 pb-4">Contact Us</h2>

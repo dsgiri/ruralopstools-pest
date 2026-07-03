@@ -3,15 +3,13 @@ import GDDCumulation from './calculators/GDDCumulation';
 import EconomicThreshold from './calculators/EconomicThreshold';
 import SprayTimingWindow from './calculators/SprayTimingWindow';
 import TrapCountROI from './calculators/TrapCountROI';
-import ProSubscriptionROI from './calculators/ProSubscriptionROI';
-import { Thermometer, CircleDollarSign, Droplet, BarChart3, Receipt } from 'lucide-react';
+import { Thermometer, CircleDollarSign, Droplet, BarChart3 } from 'lucide-react';
 
 const TABS = [
   { id: 'gdd', label: 'Degree-Days', title: 'Degree-day accumulation', desc: 'Daily GDD calculator with pest stage tracker', icon: Thermometer, color: 'text-slate-800', bg: 'bg-[#E4DAC5]' },
   { id: 'threshold', label: 'Thresholds', title: 'Economic threshold calculator', desc: 'Is it worth spraying? Break-even pest count.', icon: CircleDollarSign, color: 'text-emerald-800', bg: 'bg-[#D1F2D6]' },
   { id: 'spray', label: 'Spray Window', title: 'Spray timing window checker', desc: 'Wind, temp & humidity go/no-go decision', icon: Droplet, color: 'text-sky-800', bg: 'bg-[#e0f2fe]' },
   { id: 'trap', label: 'Trap ROI', title: 'Trap count ROI estimator', desc: 'Value of early detection vs. late response', icon: BarChart3, color: 'text-pink-800', bg: 'bg-[#fce7f3]' },
-  { id: 'pro', label: 'Sub Break-even', title: 'Pro subscription break-even', desc: 'How many acres until RUC Pest pays for itself', icon: Receipt, color: 'text-indigo-800', bg: 'bg-[#e0e7ff]' },
 ];
 
 export default function CalculatorsView() {
@@ -57,7 +55,6 @@ export default function CalculatorsView() {
           {activeTab === 'threshold' && <EconomicThreshold />}
           {activeTab === 'spray' && <SprayTimingWindow />}
           {activeTab === 'trap' && <TrapCountROI />}
-          {activeTab === 'pro' && <ProSubscriptionROI />}
         </div>
       </div>
     </div>
