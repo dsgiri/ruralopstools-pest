@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pest.ruralutilitycost.com/sitemap.xml
+Sitemap: https://pest.ruralopstools.com/sitemap.xml

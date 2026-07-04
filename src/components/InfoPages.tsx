@@ -13,7 +13,7 @@ export default function InfoPages({ view }: InfoPagesProps) {
           <div className="space-y-4 text-slate-700 max-w-none">
             <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-6 border-b border-slate-100 pb-4">About Pest</h2>
             <p className="text-sm font-medium leading-relaxed">
-              Pest is an integrated pest management and pest risk decision-support hub, proudly part of the Rural Utility Cost ecosystem.
+              Pest is an integrated pest management and pest risk decision-support hub, proudly part of the Rural Ops Tools ecosystem.
             </p>
             <p className="text-xs leading-relaxed">
               Our mission is to help farmers, crop advisers, and rural producers monitor pest risk, disease risk, insect pressure, spray timing, and weather-linked risk. 
@@ -49,7 +49,7 @@ export default function InfoPages({ view }: InfoPagesProps) {
           <div className="space-y-4 text-slate-700 max-w-none">
             <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-6 border-b border-slate-100 pb-4">License</h2>
             <p className="text-xs font-medium leading-relaxed">
-              The use of applications hosted under ruralutilitycost.com is subject to our master licensing agreement. Data inputs remain the property of the user, while the forecasting models and structural software remain proprietary where applicable.
+              The use of applications hosted under ruralopstools.com is subject to our master licensing agreement. Data inputs remain the property of the user, while the forecasting models and structural software remain proprietary where applicable.
             </p>
           </div>
         )}
@@ -82,7 +82,7 @@ export default function InfoPages({ view }: InfoPagesProps) {
             </p>
             <h3 className="text-sm font-bold text-slate-800 mt-4">6. Contact Us</h3>
             <p className="text-xs leading-relaxed">
-              If you have any questions about this Privacy Policy, please contact us at support@ruralutilitycost.com.
+              If you have any questions about this Privacy Policy, please contact us at support@ruralopstools.com.
             </p>
           </div>
         )}
@@ -95,10 +95,10 @@ export default function InfoPages({ view }: InfoPagesProps) {
             </p>
             <div className="bg-slate-50 p-6 rounded border border-slate-100">
               <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Email</p>
-              <a href="mailto:support@ruralutilitycost.com" className="text-emerald-700 hover:underline block mb-5 text-sm font-bold">support@ruralutilitycost.com</a>
+              <a href="mailto:support@ruralopstools.com" className="text-emerald-700 hover:underline block mb-5 text-sm font-bold">support@ruralopstools.com</a>
               
               <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Parent Network</p>
-              <a href="https://ruralutilitycost.com" className="text-emerald-700 hover:underline text-sm font-bold">ruralutilitycost.com</a>
+              <a href="https://ruralopstools.com" className="text-emerald-700 hover:underline text-sm font-bold">ruralopstools.com</a>
             </div>
           </div>
         )}

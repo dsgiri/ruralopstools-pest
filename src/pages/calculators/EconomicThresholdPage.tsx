@@ -95,7 +95,7 @@ export default function EconomicThresholdPage() {
 
         {/* Disclaimer */}
         <div className="text-[10px] text-slate-400 text-center pt-8 border-t border-slate-200 px-4">
-          <p>Disclaimer: This calculator provides generalized estimates based on standard agricultural models. Actual economic thresholds may vary by region, specific crop variety, and local environmental conditions. Always consult with a certified agronomist or local extension office before making definitive pesticide application decisions. RUC Pest assumes no liability for crop loss or misapplication.</p>
+          <p>Disclaimer: This calculator provides generalized estimates based on standard agricultural models. Actual economic thresholds may vary by region, specific crop variety, and local environmental conditions. Always consult with a certified agronomist or local extension office before making definitive pesticide application decisions. RuralOpsTools Pest assumes no liability for crop loss or misapplication.</p>
         </div>
       </section>
     </div>

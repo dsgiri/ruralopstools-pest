@@ -1,6 +1,6 @@
 # Calculators Blueprint
 
-This document outlines the blueprint for the 5 interactive calculators tailored for the Rural Utility Cost Pest platform. It details their purpose, required inputs, generated outputs, and reverse-engineered logic based on the provided designs.
+This document outlines the blueprint for the 5 interactive calculators tailored for the Rural Ops Tools Pest platform. It details their purpose, required inputs, generated outputs, and reverse-engineered logic based on the provided designs.
 
 ## 1. Degree-day Accumulation
 **Subtitle:** Daily GDD calculator with pest stage tracker
@@ -94,7 +94,7 @@ This document outlines the blueprint for the 5 interactive calculators tailored 
 ---
 
 ## 5. Pro Subscription Break-even
-**Subtitle:** How many acres until RUC Pest pays for itself
+**Subtitle:** How many acres until RuralOpsTools Pest pays for itself
 **Strategic Purpose:** Put this on the pricing page. When a grower with 800 acres sees "pays for itself 15x over," the $24/month objection disappears. It's the calculator that closes the sale.
 
 ### Inputs

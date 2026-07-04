@@ -1,7 +1,7 @@
 # Storage Reusable Calculator Page Master Prompt
 
 ## 1. Purpose of this template
-This template provides a standardized instruction set for AI coding agents to generate new calculator pages for the Storage section of the Rural Utility Cost application. It ensures that all future calculator pages share a consistent UI, UX, page structure, and tone with the established Grain Bin Capacity Estimator pattern, preventing design fragmentation and feature creep.
+This template provides a standardized instruction set for AI coding agents to generate new calculator pages for the Storage section of the Rural Ops Tools application. It ensures that all future calculator pages share a consistent UI, UX, page structure, and tone with the established Grain Bin Capacity Estimator pattern, preventing design fragmentation and feature creep.
 
 ## 2. Design and product principles
 - **Practical Tone:** Use clear, plainspoken, and action-oriented language. Avoid marketing fluff or SaaS jargon.

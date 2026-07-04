@@ -34,13 +34,12 @@ export default function Navbar({ currentView, onNavigate }: NavbarProps) {
     <header className="flex items-center justify-between px-4 sm:px-6 py-2 bg-white border-b border-slate-200 z-50 shadow-sm shrink-0 relative" role="banner">
       <div className="flex items-center gap-4 cursor-pointer min-h-[48px]" onClick={() => handleNav('Home')} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && handleNav('Home')} aria-label="Go to Home">
         <div className="flex items-center bg-emerald-700 text-white px-3 py-2 rounded font-bold text-lg">
-          RUC
+          RuralOpsTools
         </div>
         <div className="hidden sm:block h-6 w-px bg-slate-300"></div>
         <div className="flex flex-col justify-center">
-          <span className="hidden sm:block text-[10px] font-semibold uppercase tracking-wider text-slate-500 leading-none mb-1">Rural Utility Cost</span>
-          <h1 className="text-lg sm:text-xl font-bold leading-none flex items-center gap-2 m-0">
-            Pest <span className="hidden md:inline-block text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-sm uppercase tracking-widest">Decision Support</span>
+          <h1 className="text-lg sm:text-xl font-bold leading-none flex items-center m-0">
+            Pest
           </h1>
         </div>
       </div>

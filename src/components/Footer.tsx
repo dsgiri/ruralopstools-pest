@@ -18,7 +18,7 @@ export default function Footer({ onNavigate }: FooterProps) {
       <div className="flex flex-col sm:flex-row items-center gap-2 text-slate-400 text-center sm:text-left min-h-[48px]">
         <span className="italic">Guidance is informational only. Verify pesticide labels and regs.</span>
         <div className="hidden sm:block h-3 w-px bg-slate-200 mx-2" aria-hidden="true"></div>
-        <span className="hidden sm:block font-bold">Part of Rural Utility Cost System</span>
+        <span className="hidden sm:block font-bold">Part of Rural Ops Tools System</span>
       </div>
     </footer>
   );
