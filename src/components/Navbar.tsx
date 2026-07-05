@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ViewState } from '../types';
-import { Bug, Menu, X } from 'lucide-react';
+import { Menu, X, Star } from 'lucide-react';
 
 interface NavbarProps {
   currentView: ViewState;
@@ -14,7 +14,6 @@ const NAV_ITEMS: { label: string; view: ViewState }[] = [
   { label: 'Traps', view: 'Traps' },
   { label: 'Spray', view: 'Spray' },
   { label: 'Alerts', view: 'Alerts' },
-  { label: 'Favorites', view: 'Favorites' },
   { label: 'Calculators', view: 'Calculators' }
 ];
 
@@ -33,18 +32,30 @@ export default function Navbar({ currentView, onNavigate }: NavbarProps) {
   return (
     <header className="flex items-center justify-between px-4 sm:px-6 py-2 bg-white border-b border-slate-200 z-50 shadow-sm shrink-0 relative" role="banner">
       <div className="flex items-center gap-4 cursor-pointer min-h-[48px]" onClick={() => handleNav('Home')} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && handleNav('Home')} aria-label="Go to Home">
-        <div className="flex items-center bg-emerald-700 text-white px-3 py-2 rounded font-bold text-lg">
-          RuralOpsTools
+        <div className="flex flex-col justify-center">
+          <span className="text-lg sm:text-xl font-bold leading-none flex items-center m-0 text-slate-800">
+            RuralOpsTools
+          </span>
         </div>
         <div className="hidden sm:block h-6 w-px bg-slate-300"></div>
-        <div className="flex flex-col justify-center">
-          <h1 className="text-lg sm:text-xl font-bold leading-none flex items-center m-0">
-            Pest
-          </h1>
+        <div className="flex items-center bg-emerald-700 text-white px-3 py-1.5 sm:py-2 rounded font-bold text-lg">
+          Pest
         </div>
       </div>
 
       <nav className="hidden md:flex items-center gap-6 h-full" role="navigation" aria-label="Main Navigation">
+        <button
+          aria-current={currentView === 'Favorites' ? 'page' : undefined}
+          onClick={() => handleNav('Favorites')}
+          className={`text-sm font-semibold transition-colors px-3 py-1.5 rounded-lg border flex items-center gap-2 ${
+            currentView === 'Favorites'
+              ? 'bg-amber-50 text-amber-700 border-amber-200 shadow-sm'
+              : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:text-slate-900 shadow-sm'
+          }`}
+        >
+          <Star className={`w-4 h-4 ${currentView === 'Favorites' ? 'fill-amber-400 text-amber-500' : 'text-slate-400'}`} />
+          Favorites
+        </button>
         {NAV_ITEMS.map((item) => (
           <button
             key={item.view}
@@ -79,6 +90,18 @@ export default function Navbar({ currentView, onNavigate }: NavbarProps) {
       {isOpen && (
         <div id="mobile-menu" className="absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-lg md:hidden z-50">
           <nav className="px-4 py-2 space-y-1" role="navigation" aria-label="Mobile Navigation">
+            <button
+              aria-current={currentView === 'Favorites' ? 'page' : undefined}
+              onClick={() => handleNav('Favorites')}
+              className={`w-full text-left px-3 py-3 rounded-md text-sm font-semibold min-h-[48px] focus:outline-none focus:ring-2 focus:ring-emerald-500 border flex items-center gap-2 mb-2 ${
+                currentView === 'Favorites'
+                  ? 'bg-amber-50 text-amber-700 border-amber-200'
+                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:text-slate-900'
+              }`}
+            >
+              <Star className={`w-4 h-4 ${currentView === 'Favorites' ? 'fill-amber-400 text-amber-500' : 'text-slate-400'}`} />
+              Favorites
+            </button>
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.view}
